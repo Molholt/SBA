@@ -18,6 +18,7 @@ var pct = new Array('pct_ins','pct_jps','pct_ft','pct_3ps','pct_hnd','pct_pas','
 var lbl = new Array('reg_ins','reg_jps','reg_ft','reg_3ps','reg_hnd','reg_pas','reg_orb','reg_drb','reg_psd','reg_prd','reg_stl','reg_blk','reg_fl','reg_qkn','reg_str','reg_jmp');
 var loss = 0;
 
+// Function to tally lost APE during regression
 function Subtract(current,regress)
 {
 var a = current;
@@ -53,7 +54,7 @@ a--;
 
 }
 
-
+//Function to calculate regressed attributes and APE. Utilizes Subtract()
 function Regress()
 {
 var i = 0;
@@ -69,6 +70,8 @@ document.getElementById('ape').value = document.getElementById('tpe').value - lo
 loss = 0;
 }
 
+// Function to input regression percentages for each attribute, based on weaknesses/strengths and year of regression
+// Also runs Regress() at the end to auto-update fields
 function template(year)
 {
 var i = 0;
@@ -199,6 +202,7 @@ switch(year)
 Regress();
 }
 
+// Function to move Regressed Attribute values into the Current Attributes column
 function Swap() 
 {
 var i = 0;
@@ -210,6 +214,7 @@ while (i <curr.length)
 document.getElementById('tpe').value = document.getElementById('ape').value;
 }
 
+// Function to print Attribute labels and their values in a pop-up
 function Print() 
 {
 var lab = new Array('Inside Shot','Jump Shot','Free Throw','Three Point','Handling','Passing','Offensive Rebounding','Defensive Rebounding','Post Defense','Perimeter Defense','Stealing','Blocking','Fouling','Quickness','Strength','Jumping');
@@ -225,11 +230,14 @@ i++;
 alert(prn.join('\n'));
 }
 
+// Function to reset the Regression Calculator
 function Reset() 
 {
     document.getElementById("regcalc").reset();
 }
 
+// Function to import Current Attributes from the Import Text Area
+// Useful for copying from a player page directly into the Regression Calculator
 function Import()
 {
 var i = 0;
@@ -247,6 +255,7 @@ while (k < curr.length)
 }
 }
 
+// Function used to populate test values for validation purposes
 function Test() 
 {
 var i = 0;
@@ -258,6 +267,7 @@ while(i < curr.length)
 document.getElementById('tpe').value = 1520;
 }
 
+// Function that allows a checkbox to control whether the Import TextArea is displayed or hidden
 function displayImport()
 {
 if(document.getElementById('disimp').checked)
@@ -274,9 +284,9 @@ else
 </head>
 
 <body>
+<!-- Body Start -->
 <div id="wrapper" style="position:relative;top:0;left:0;">
 <center><img src="./sbaimg/bullets.png" class="logo"><img src="./sbaimg/clippers.png" class="logo"><img src="./sbaimg/knights.png" class="logo"><img src="./sbaimg/maulers.png" class="logo"><img src="./sbaimg/prowlers.png" class="logo"><img src="./sbaimg/rail.png" class="logo"><img src="./sbaimg/ravens.png" class="logo"><img src="./sbaimg/tbirds.png" class="logo"><img src="./sbaimg/tropics.png" class="logo"></center>
-<!-- Body Table Start -->
 <div id="charoverview" style="position:relative;top:10px;left:0;background-color:#000000;color:#FFFFFF;padding: 0 30px;border-style:inset;border-size:1px;width:50%;margin: 0 auto;">
 <!--<div style="position:absolute;left:-90px;"><br><img src="./sbaimg/bullets.png" class="logo2"><br><img src="./sbaimg/clippers.png" class="logo2"><br><img src="./sbaimg/knights.png" class="logo2"><br><img src="./sbaimg/maulers.png" class="logo2"><br><img src="./sbaimg/prowlers.png" class="logo2"><br><img src="./sbaimg/rail.png" class="logo2"><br><img src="./sbaimg/ravens.png" class="logo2"><br><img src="./sbaimg/tbirds.png" class="logo2"><br><img src="./sbaimg/tropics.png" class="logo2"></div>
 <div style="position:absolute;right:-90px;"><br><img src="./sbaimg/bullets.png" class="logo2"><br><img src="./sbaimg/clippers.png" class="logo2"><br><img src="./sbaimg/knights.png" class="logo2"><br><img src="./sbaimg/maulers.png" class="logo2"><br><img src="./sbaimg/prowlers.png" class="logo2"><br><img src="./sbaimg/rail.png" class="logo2"><br><img src="./sbaimg/ravens.png" class="logo2"><br><img src="./sbaimg/tbirds.png" class="logo2"><br><img src="./sbaimg/tropics.png" class="logo2"></div>-->
@@ -458,18 +468,20 @@ Regressed Attribute - The value of each Attribute after regression has ruined yo
 </div>
 </div>
 </div>
-<!-- Body Table End -->
+<!-- Body End -->
 
 
-<!-- Footer Table Start -->
+<!-- Footer Start -->
 <div id="footer" style="visibility:hidden;">
 <div id="footerbar">
 2013 DBK Games, Inc. | <a href="webmaster@dbkgames.com">webmaster@dbkgames.com</a>
 </div>
 </div>
+<!-- Footer End -->
+	
 </body>
 </html>
-<!-- Footer Table End -->
+
 
 
 
