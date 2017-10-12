@@ -1,0 +1,480 @@
+<!DOCTYPE html> 
+<html><head><title>Simulation Basketball Association</title>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta name="author" content="Emidas" />
+<style>
+body{background-image:url("http://sba.today/forums/uploads/monthly_2017_07/sba-banner.gif.1c54c10204dfb862a24b983f89341d62.gif");background-position:center top;}
+td{text-align:center;}
+
+</style>
+<script>
+function noNeg(num) {
+if(num < 0)
+{
+num = 0;
+num = Number(num);
+return num;
+}
+else
+num = Number(num);
+return num;
+}
+
+function decimize(num)
+{
+	a = String(num);
+	b = a.split(".")[1];
+	b = Number("."+b);
+	return b;
+}
+
+function subtract(current,increase,cost)
+{
+a = Number(document.getElementById(current).value);
+a = noNeg(a-1);
+c = Number(document.getElementById(increase).value);
+c = noNeg(c-1);
+document.getElementById(increase).value = c;
+
+if(document.getElementById(current).value<=70)
+	{
+		b = Number(document.getElementById(cost).value);
+		b = noNeg(b-1);
+		document.getElementById(cost).value = b;
+	}
+else if(document.getElementById(current).value<=80)
+	{
+		b = Number(document.getElementById(cost).value);
+		b = noNeg(b-2);
+		document.getElementById(cost).value = b;
+	}
+else if(document.getElementById(current).value<=85)
+	{
+		b = Number(document.getElementById(cost).value);
+		b = noNeg(b-3);
+		document.getElementById(cost).value = b;
+	}
+else if(document.getElementById(current).value<=90)
+	{
+		b = Number(document.getElementById(cost).value);
+		b = noNeg(b-5);
+		document.getElementById(cost).value = b;
+	}
+else if(document.getElementById(current).value<=95)
+	{
+		b = Number(document.getElementById(cost).value);
+		b = noNeg(b-7);
+		document.getElementById(cost).value = b;
+	}
+else if(document.getElementById(current).value<=99)
+	{
+		b = Number(document.getElementById(cost).value);
+		b = noNeg(b-12);
+		document.getElementById(cost).value = b;
+	}
+document.getElementById(current).value = a;
+}
+
+function subtractTPE(current,increase,cost)
+{
+
+}
+
+
+
+function addTPE(current,increase,cost)
+{
+if(document.getElementById(current).value<70)
+	{
+		a = Number(document.getElementById(current).value);
+		document.getElementById(current).value = a + 1;
+		c = Number(document.getElementById(increase).value);
+		document.getElementById(increase).value = c + 1;
+	}
+else if(document.getElementById(current).value<80)
+	{
+		a = Number(document.getElementById(current).value);
+		document.getElementById(current).value = a + .5;
+		c = Number(document.getElementById(increase).value);
+		document.getElementById(increase).value = c + .5;
+	}
+else if(document.getElementById(current).value<85)
+	{
+		a = Number(document.getElementById(current).value);
+		document.getElementById(current).value = a + .333;
+		c = Number(document.getElementById(increase).value);
+		document.getElementById(increase).value = c + .333;
+	}
+else if(document.getElementById(current).value<90)
+	{
+		a = Number(document.getElementById(current).value);
+		document.getElementById(current).value = a + .2;
+		c = Number(document.getElementById(increase).value);
+		document.getElementById(increase).value = c + .2;
+	}
+else if(document.getElementById(current).value<95)
+	{
+		a = Number(document.getElementById(current).value);
+		document.getElementById(current).value = a + .142;
+		c = Number(document.getElementById(increase).value);
+		document.getElementById(increase).value = c + .142;
+	}
+else if(document.getElementById(current).value<99)
+	{
+		a = Number(document.getElementById(current).value);
+		document.getElementById(current).value = a + .083;
+		c = Number(document.getElementById(increase).value);
+		document.getElementById(increase).value = c + .083;
+	}
+else
+	{
+	 return;
+	}
+b = Number(document.getElementById(cost).value);
+document.getElementById(cost).value = b+1;
+
+d = decimize(document.getElementById(current).value);
+if(d > 0.95)
+	{
+		document.getElementById(current).value = Math.round(document.getElementById(current).value);
+	}
+e = decimize(document.getElementById(increase).value);
+if(e > 0.95)
+	{
+		document.getElementById(increase).value = Math.round(document.getElementById(increase).value);
+	}
+}
+
+function add(current,increase,cost)
+{
+if(document.getElementById(current).value<70)
+	{
+		b = Number(document.getElementById(cost).value);
+		document.getElementById(cost).value = b + 1;
+	}
+else if(document.getElementById(current).value<80)
+	{
+		b = Number(document.getElementById(cost).value);
+		document.getElementById(cost).value = b + 2;
+	}
+else if(document.getElementById(current).value<85)
+	{
+		b = Number(document.getElementById(cost).value);
+		document.getElementById(cost).value = b + 3;
+	}
+else if(document.getElementById(current).value<90)
+	{
+		b = Number(document.getElementById(cost).value);
+		document.getElementById(cost).value = b + 5;
+	}
+else if(document.getElementById(current).value<95)
+	{
+		b = Number(document.getElementById(cost).value);
+		document.getElementById(cost).value = b + 7;
+	}
+else if(document.getElementById(current).value<99)
+	{
+		b = Number(document.getElementById(cost).value);
+		document.getElementById(cost).value = b + 12;
+	}
+else
+	{
+		return;
+	}
+a = Number(document.getElementById(current).value);
+document.getElementById(current).value = a + 1;
+c = Number(document.getElementById(increase).value);
+document.getElementById(increase).value = c + 1;
+}
+
+function template(position)
+{
+if(position == 'none')
+	{
+		var atty = new Array(35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,35);
+	}
+else if(position == 'pg_dis')
+    {
+        var atty = new Array(35,35,35,20,50,50,35,20,35,35,35,35,35,35,35,35);
+    } 
+else if(position == 'pg_def')
+    {
+        var atty = new Array(35,20,35,35,35,35,35,35,35,50,50,35,35,35,20,35);
+    }
+else if(position == 'pg_ath')
+    {
+        var atty = new Array(35,35,35,20,35,35,35,35,35,20,35,35,35,50,35,50);
+    }
+else if(position == 'pg_sho')
+    {
+        var atty = new Array(35,50,35,50,35,35,35,35,35,20,35,35,35,20,35,35);
+    }
+else if(position == 'pg_all')
+    {
+        var atty = new Array(35,50,35,20,35,50,35,35,35,35,35,35,35,20,35,35);
+	}
+else if(position == 'pg_hus')
+    {
+        var atty = new Array(35,35,35,35,50,35,20,35,35,35,35,20,35,50,35,35);
+    } 
+else if(position == 'pg_fre')
+    {
+        var atty = new Array(50,20,20,20,35,50,35,35,20,20,20,35,20,20,35,20);
+    } 	
+document.getElementById('curr_ins').value = atty[0];
+document.getElementById('curr_jps').value = atty[1];
+document.getElementById('curr_ft').value = atty[2];
+document.getElementById('curr_3ps').value = atty[3];
+document.getElementById('curr_hnd').value = atty[4];
+document.getElementById('curr_pas').value = atty[5];
+document.getElementById('curr_orb').value = atty[6];
+document.getElementById('curr_drb').value = atty[7];
+document.getElementById('curr_psd').value = atty[8];
+document.getElementById('curr_prd').value = atty[9];
+document.getElementById('curr_stl').value = atty[10];
+document.getElementById('curr_blk').value = atty[11];
+document.getElementById('curr_fl').value = atty[12];
+document.getElementById('curr_qkn').value = atty[13];
+document.getElementById('curr_str').value = atty[14];
+document.getElementById('curr_jmp').value = atty[15];
+document.getElementById('increase_ins').value = document.getElementById('cost_ins').value = document.getElementById('increase_jps').value = document.getElementById('cost_jps').value = document.getElementById('increase_ft').value = document.getElementById('cost_ft').value = document.getElementById('increase_3ps').value = document.getElementById('cost_3ps').value = document.getElementById('increase_hnd').value = document.getElementById('cost_hnd').value = document.getElementById('increase_pas').value = document.getElementById('cost_pas').value = document.getElementById('increase_orb').value = document.getElementById('cost_orb').value = document.getElementById('increase_drb').value = document.getElementById('cost_drb').value = document.getElementById('increase_psd').value = document.getElementById('cost_psd').value = document.getElementById('increase_prd').value = document.getElementById('cost_prd').value = document.getElementById('increase_stl').value = document.getElementById('cost_stl').value = document.getElementById('increase_blk').value = document.getElementById('cost_blk').value = document.getElementById('increase_fl').value = document.getElementById('cost_fl').value = document.getElementById('increase_qkn').value = document.getElementById('cost_qkn').value = document.getElementById('increase_str').value = document.getElementById('cost_str').value = document.getElementById('increase_jmp').value = document.getElementById('cost_jmp').value = 0;
+}
+
+function Reset() {
+    document.getElementById("tpecalc").reset();
+}
+</script>
+
+</head>
+<body>
+
+
+<div id="wrapper">
+<!-- Body Table Start -->
+<div id="charoverview" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background-color:#000000;color:#FFFFFF;padding-right:30px;padding-left:30px;border-style:inset;border-size:1px;">
+<br><br>
+<form method="get" id="tpecalc">
+<table style="margin: 0 auto;padding:0;" id="tpetable">
+<tr>
+<td colspan="8" style="text-align:center;">TPE Calculator</td>
+</tr>
+<tr>
+<td colspan="8" style="height:20px;text-align:center;">Position Template: <select onchange="template(this.value)" id="pos" style="width:150px;">
+<option selected value="none">None</option>
+<option disabled>-----Point Guard-----</option>
+<option value="pg_dis">Distributor</option>
+<option value="pg_def">Defensive</option>
+<option value="pg_ath">Athlete</option>
+<option value="pg_sho">Shooter</option>
+<option value="pg_all">All-Around</option>
+<option value="pg_hus">Hustler</option>
+<option value="pg_fre">Freak</option>
+<option disabled>-----Shooting Guard-----</option>
+<option disabled>-----Small Forward-----</option>
+<option disabled>-----Power Forward-----</option>
+<option disabled>-----Center-----</option>
+</select>
+<input type="button" onclick="Reset()" value="Reset">
+</td>
+</tr>
+<tr>
+<td colspan="8" style="height:20px;"></td>
+</tr>
+<tr>
+<td>Attribute Name</td>
+<td>Current Att.</td>
+<td colspan="2" align="center">By Attribute</td>
+<td colspan="2" align="center">By TPE</td>
+<td>Att. Increase</td>
+<td>TPE Cost</td>
+</tr>
+<tr>
+<td>Inside Shot:</td>
+<td><input type="text" class="cb" id="curr_ins" name="curr_ins" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_ins','increase_ins','cost_ins')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_ins','increase_ins','cost_ins')"></td>
+<td><!--<input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick=""></td>-->
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_ins','increase_ins','cost_ins')"></td>
+<td><input type="text" class="cb" id="increase_ins" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_ins" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Jump Shot:</td>
+<td><input type="text" class="cb" name="curr_jps" id="curr_jps" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_jps','increase_jps','cost_jps')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_jps','increase_jps','cost_jps')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_jps','increase_jps','cost_jps')"></td>
+<td><input type="text" class="cb" id="increase_jps" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_jps" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Free Throw:</td>
+<td><input type="text" class="cb" name="curr_ft" id="curr_ft" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_ft','increase_ft','cost_ft')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_ft','increase_ft','cost_ft')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_ft','increase_ft','cost_ft')"></td>
+<td><input type="text" class="cb" id="increase_ft" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_ft" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Three Point:</td>
+<td><input type="text" class="cb" name="curr_3ps" id="curr_3ps" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_3ps','increase_3ps','cost_3ps')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_3ps','increase_3ps','cost_3ps')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_3ps','increase_3ps','cost_3ps')"></td>
+<td><input type="text" class="cb" id="increase_3ps" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_3ps" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Handling:</td>
+<td><input type="text" class="cb" name="curr_hnd" id="curr_hnd" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_hnd','increase_hnd','cost_hnd')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_hnd','increase_hnd','cost_hnd')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_hnd','increase_hnd','cost_hnd')"></td>
+<td><input type="text" class="cb" id="increase_hnd" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_hnd" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Passing:</td>
+<td><input type="text" class="cb" name="curr_pas" id="curr_pas" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_pas','increase_pas','cost_pas')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_pas','increase_pas','cost_pas')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_pas','increase_pas','cost_pas')"></td>
+<td><input type="text" class="cb" id="increase_pas" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_pas" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Off. Rebounding:</td>
+<td><input type="text" class="cb" name="curr_orb" id="curr_orb" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_orb','increase_orb','cost_orb')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_orb','increase_orb','cost_orb')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_orb','increase_orb','cost_orb')"></td>
+<td><input type="text" class="cb" id="increase_orb" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_orb" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Def. Rebounding:</td>
+<td><input type="text" class="cb" name="curr_drb" id="curr_drb" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_drb','increase_drb','cost_drb')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_drb','increase_drb','cost_drb')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_drb','increase_drb','cost_drb')"></td>
+<td><input type="text" class="cb" id="increase_drb" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_drb" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Post Defense:</td>
+<td><input type="text" class="cb" name="curr_psd" id="curr_psd" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_psd','increase_psd','cost_psd')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_psd','increase_psd','cost_psd')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_psd','increase_psd','cost_psd')"></td>
+<td><input type="text" class="cb" id="increase_psd" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_psd" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Perimeter Defense:</td>
+<td><input type="text" class="cb" name="curr_prd" id="curr_prd" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_prd','increase_prd','cost_prd')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_prd','increase_prd','cost_prd')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_prd','increase_prd','cost_prd')"></td>
+<td><input type="text" class="cb" id="increase_prd" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_prd" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Stealing:</td>
+<td><input type="text" class="cb" name="curr_stl" id="curr_stl" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_stl','increase_stl','cost_stl')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_stl','increase_stl','cost_stl')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_stl','increase_stl','cost_stl')"></td>
+<td><input type="text" class="cb" id="increase_stl" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_stl" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Blocking:</td>
+<td><input type="text" class="cb" name="curr_blk" id="curr_blk" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_blk','increase_blk','cost_blk')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_blk','increase_blk','cost_blk')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_blk','increase_blk','cost_blk')"></td>
+<td><input type="text" class="cb" id="increase_blk" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_blk" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Fouling:</td>
+<td><input type="text" class="cb" name="curr_fl" id="curr_fl" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_fl','increase_fl','cost_fl')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_fl','increase_fl','cost_fl')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_fl','increase_fl','cost_fl')"></td>
+<td><input type="text" class="cb" id="increase_fl" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_fl" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Quickness:</td>
+<td><input type="text" class="cb" name="curr_qkn" id="curr_qkn" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_qkn','increase_qkn','cost_qkn')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_qkn','increase_qkn','cost_qkn')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_qkn','increase_qkn','cost_qkn')"></td>
+<td><input type="text" class="cb" id="increase_qkn" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_qkn" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Strength:</td>
+<td><input type="text" class="cb" name="curr_str" id="curr_str" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_str','increase_str','cost_str')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_str','increase_str','cost_str')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_str','increase_str','cost_str')"></td>
+<td><input type="text" class="cb" id="increase_str" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_str" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td>Jumping:</td>
+<td><input type="text" class="cb" name="curr_jmp" id="curr_jmp" value="35" size="2" maxlength="2"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="-" onClick="subtract('curr_jmp','increase_jmp','cost_jmp')"></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="add('curr_jmp','increase_jmp','cost_jmp')"></td>
+<td></td>
+<td><input class="submit" type="button" style="height:22px;" name="calculate" value="+" onClick="addTPE('curr_jmp','increase_jmp','cost_jmp')"></td>
+<td><input type="text" class="cb" id="increase_jmp" value="0" size="3" maxlength="3" readonly="readonly"></td>
+<td><input type="text" class="cb" id="cost_jmp" value="0" size="3" maxlength="3" readonly="readonly"></td>
+</tr>
+<tr>
+<td colspan="8" style="height:20px;"></td>
+</tr>
+<tr>
+<td colspan="8"></td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+<!-- Body Table End -->
+
+
+<!-- Footer Table Start -->
+<div id="footer" style="visibility:hidden;">
+<div id="footerbar">
+2013 DBK Games, Inc. | <a href="webmaster@dbkgames.com">webmaster@dbkgames.com</a>
+</div>
+</div>
+</body>
+</html>
+<!-- Footer Table End -->
+
+
+
+
+
+
+
