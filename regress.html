@@ -1,3 +1,4 @@
+
 <!DOCTYPE html> 
 <html><head><title>Simulation Basketball Association</title>
 <meta charset="UTF-8">
@@ -5,9 +6,9 @@
 <meta name="author" content="Emidas" />
 <script src="./script.js"></script>
 <style>
-body{background-image:url("http://sba.today/forums/uploads/monthly_2017_07/sba-banner.gif.1c54c10204dfb862a24b983f89341d62.gif");background-position:center top;}
-td{text-align:center;padding-left:10px;padding-right:10px;}
-a{color:#FFFFFF;}
+body{background-image: linear-gradient(90deg, rgb(245, 245, 245) 0%, rgb(190, 190, 190) 100%);}
+td{text-align:center;padding-left:10px;padding-right:10px;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 14px;}
+a{color:#000000;}
 img.logo{width:100px;height:100px;}
 img.logo2{width:80px;height:80px;}
 </style>
@@ -17,15 +18,15 @@ img.logo2{width:80px;height:80px;}
 <!-- Body Start -->
 <div id="wrapper" style="position:relative;top:0;left:0;">
 <center><img src="./sbaimg/bullets.png" class="logo"><img src="./sbaimg/clippers.png" class="logo"><img src="./sbaimg/knights.png" class="logo"><img src="./sbaimg/maulers.png" class="logo"><img src="./sbaimg/prowlers.png" class="logo"><img src="./sbaimg/rail.png" class="logo"><img src="./sbaimg/ravens.png" class="logo"><img src="./sbaimg/tbirds.png" class="logo"><img src="./sbaimg/tropics.png" class="logo"></center>
-<div id="charoverview" style="position:relative;top:10px;left:0;background-color:#000000;color:#FFFFFF;padding: 0 30px;border-style:inset;border-size:1px;width:50%;margin: 0 auto;">
+<div id="charoverview" style="position:relative;top:10px;left:0;background-color:#ffffff;color:#000000;padding: 0 30px;border-style:solid;border-size:1px;border-color:#efefef;box-shadow: 0px 0px 25px #cdcdcd;width:50%;margin: 0 auto;">
 <!--<div style="position:absolute;left:-90px;"><br><img src="./sbaimg/bullets.png" class="logo2"><br><img src="./sbaimg/clippers.png" class="logo2"><br><img src="./sbaimg/knights.png" class="logo2"><br><img src="./sbaimg/maulers.png" class="logo2"><br><img src="./sbaimg/prowlers.png" class="logo2"><br><img src="./sbaimg/rail.png" class="logo2"><br><img src="./sbaimg/ravens.png" class="logo2"><br><img src="./sbaimg/tbirds.png" class="logo2"><br><img src="./sbaimg/tropics.png" class="logo2"></div>
 <div style="position:absolute;right:-90px;"><br><img src="./sbaimg/bullets.png" class="logo2"><br><img src="./sbaimg/clippers.png" class="logo2"><br><img src="./sbaimg/knights.png" class="logo2"><br><img src="./sbaimg/maulers.png" class="logo2"><br><img src="./sbaimg/prowlers.png" class="logo2"><br><img src="./sbaimg/rail.png" class="logo2"><br><img src="./sbaimg/ravens.png" class="logo2"><br><img src="./sbaimg/tbirds.png" class="logo2"><br><img src="./sbaimg/tropics.png" class="logo2"></div>-->
-<center><a href="../forums/">Forums</a> | <a href="../index/">SBA Index</a> | <a href="..//NCAA/index/">NCAA Index</a><br>
-<a href="../calculator/tpecalc.html">TPE Calculator</a></center>
+<center style="padding:20px 0px 0px 0px;font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size:10pt;"><a href="../forums/">FORUMS</a> | <a href="../index/">SBA INDEX</a> | <a href="..//NCAA/index/">NCAA INDEX</a> | 
+<a href="../calculator/tpecalc.html">TPE CALCULATOR</a></center>
 <form method="get" id="regcalc">
 <table style="margin: 0 auto;padding:0;" id="regtable">
 <tr>
-<td colspan="6" style="text-align:center;font-size:18px;font-weight:bold;">Regression Calculator </td>
+<td colspan="6" style="text-align:center;font-size:36px;font-weight:bold;padding:20px;color:#ff7c19;">Regression Calculator</td>
 </tr>
 <tr>
 <td colspan="6" style="height:20px;text-align:center;">
@@ -52,156 +53,158 @@ img.logo2{width:80px;height:80px;}
 <td colspan="6" style="height:20px;"></td>
 </tr>
 <tr>
-<td>Attribute<br>Name</td>
-<td>Current<br>Attribute</td>
-<td>Wk | Nrm | Str</td>
-<td>Regression<br>Percentage</td>
-<td>Regressed<br>Attribute</td>
+<td style="text-align:left;font-weight:bold">Attribute Name</td>
+<td style="text-align:left;font-weight:bold">Rating</td>
+<td style="text-align:left;font-weight:bold">Wk | Nrm | Str</td>
+<td style="text-align:left;font-weight:bold">Percentage</td>
+<td style="text-align:left;font-weight:bold">Regressed</td>
 <td rowspan="16"><div id="display" style="display:none;"><h3>Import</h3><textarea id="import" rows="16"></textarea></div></td>
 </tr>
 <tr>
-<td>Inside Shot:</td>
-<td><input type="text" class="cb" id="curr_ins" name="curr_ins" size="2" maxlength="2" tabindex=1></td>
+<td style="text-align:left;">Inside Shot:</td>
+<td><input type="text" class="cb" id="curr_ins" name="curr_ins" size="4" maxlength="2" tabindex=1></td>
 <td><input type="radio" class="cb" id="w_ins" name="ins" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_ins" name="ins" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_ins" name="ins" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_ins"  size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_ins"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_ins"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Jump Shot:</td>
-<td><input type="text" class="cb" id="curr_jps" name="curr_ins"  size="2" maxlength="2" tabindex=2></td>
+<td style="text-align:left;">Jump Shot:</td>
+<td><input type="text" class="cb" id="curr_jps" name="curr_ins"  size="4" maxlength="2" tabindex=2></td>
 <td><input type="radio" class="cb" id="w_jps" name="jps" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_jps" name="jps" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_jps" name="jps" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_jps" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_jps"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_jps"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Free Throw:</td>
-<td><input type="text" class="cb" id="curr_ft" name="curr_ins"  size="2" maxlength="2" tabindex=3></td>
+<td style="text-align:left;">Free Throw:</td>
+<td><input type="text" class="cb" id="curr_ft" name="curr_ins"  size="4" maxlength="2" tabindex=3></td>
 <td><input type="radio" class="cb" id="w_ft" name="ft" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_ft" name="ft" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_ft" name="ft" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_ft" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_ft"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_ft"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Three Point:</td>
-<td><input type="text" class="cb" id="curr_3ps" name="curr_ins"  size="2" maxlength="2" tabindex=4></td>
+<td style="text-align:left;">Three Point:</td>
+<td><input type="text" class="cb" id="curr_3ps" name="curr_ins"  size="4" maxlength="2" tabindex=4></td>
 <td><input type="radio" class="cb" id="w_3ps" name="3ps" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_3ps" name="3ps" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_3ps" name="3ps" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_3ps" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_3ps"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_3ps"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Handling:</td>
-<td><input type="text" class="cb" id="curr_hnd" name="curr_ins"  size="2" maxlength="2" tabindex=5></td>
+<td style="text-align:left;">Handling:</td>
+<td><input type="text" class="cb" id="curr_hnd" name="curr_ins"  size="4" maxlength="2" tabindex=5></td>
 <td><input type="radio" class="cb" id="w_hnd" name="hnd" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_hnd" name="hnd" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_hnd" name="hnd" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_hnd" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_hnd"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_hnd"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Passing:</td>
-<td><input type="text" class="cb" id="curr_pas" name="curr_ins"  size="2" maxlength="2" tabindex=6></td>
+<td style="text-align:left;">Passing:</td>
+<td><input type="text" class="cb" id="curr_pas" name="curr_ins"  size="4" maxlength="2" tabindex=6></td>
 <td><input type="radio" class="cb" id="w_pas" name="pas" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_pas" name="pas" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_pas" name="pas" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_pas" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_pas"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_pas"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Offensive Rebounding:</td>
-<td><input type="text" class="cb" id="curr_orb" name="curr_ins"  size="2" maxlength="2" tabindex=7></td>
+<td style="text-align:left;">Offensive Rebounding:</td>
+<td><input type="text" class="cb" id="curr_orb" name="curr_ins"  size="4" maxlength="2" tabindex=7></td>
 <td><input type="radio" class="cb" id="w_orb" name="orb" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_orb" name="orb" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_orb" name="orb" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_orb" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_orb"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_orb"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Defensive Rebounding:</td>
-<td><input type="text" class="cb" id="curr_drb" name="curr_ins"  size="2" maxlength="2" tabindex=8></td>
+<td style="text-align:left;">Defensive Rebounding:</td>
+<td><input type="text" class="cb" id="curr_drb" name="curr_ins"  size="4" maxlength="2" tabindex=8></td>
 <td><input type="radio" class="cb" id="w_drb" name="drb" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_drb" name="drb" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_drb" name="drb" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_drb" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_drb"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_drb"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Post Defense:</td>
-<td><input type="text" class="cb" id="curr_psd" name="curr_ins"  size="2" maxlength="2" tabindex=9></td>
+<td style="text-align:left;">Post Defense:</td>
+<td><input type="text" class="cb" id="curr_psd" name="curr_ins"  size="4" maxlength="2" tabindex=9></td>
 <td><input type="radio" class="cb" id="w_psd" name="psd" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_psd" name="psd" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_psd" name="psd" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_psd" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_psd"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_psd"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Perimeter Defense:</td>
-<td><input type="text" class="cb" id="curr_prd" name="curr_ins"  size="2" maxlength="2" tabindex=10></td>
+<td style="text-align:left;">Perimeter Defense:</td>
+<td><input type="text" class="cb" id="curr_prd" name="curr_ins"  size="4" maxlength="2" tabindex=10></td>
 <td><input type="radio" class="cb" id="w_prd" name="prd" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_prd" name="prd" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_prd" name="prd" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_prd" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_prd"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_prd"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Stealing:</td>
-<td><input type="text" class="cb" id="curr_stl" name="curr_ins"  size="2" maxlength="2" tabindex=11></td>
+<td style="text-align:left;">Stealing:</td>
+<td><input type="text" class="cb" id="curr_stl" name="curr_ins"  size="4" maxlength="2" tabindex=11></td>
 <td><input type="radio" class="cb" id="w_stl" name="stl" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_stl" name="stl" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_stl" name="stl" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_stl" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_stl"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_stl"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Shot Blocking:</td>
-<td><input type="text" class="cb" id="curr_blk" name="curr_ins"  size="2" maxlength="2" tabindex=12></td>
+<td style="text-align:left;">Shot Blocking:</td>
+<td><input type="text" class="cb" id="curr_blk" name="curr_ins"  size="4" maxlength="2" tabindex=12></td>
 <td><input type="radio" class="cb" id="w_blk" name="blk" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_blk" name="blk" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_blk" name="blk" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_blk" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_blk"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_blk"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Fouling:</td>
-<td><input type="text" class="cb" id="curr_fl" name="curr_ins"  size="2" maxlength="2" tabindex=13></td>
+<td style="text-align:left;">Fouling:</td>
+<td><input type="text" class="cb" id="curr_fl" name="curr_ins"  size="4" maxlength="2" tabindex=13></td>
 <td><input type="radio" class="cb" id="w_fl" name="fl" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_fl" name="fl" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_fl" name="fl" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_fl" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_fl"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_fl"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Quickness:</td>
-<td><input type="text" class="cb" id="curr_qkn" name="curr_ins"  size="2" maxlength="2" tabindex=13></td>
+<td style="text-align:left;">Quickness:</td>
+<td><input type="text" class="cb" id="curr_qkn" name="curr_ins"  size="4" maxlength="2" tabindex=13></td>
 <td><input type="radio" class="cb" id="w_qkn" name="qkn" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_qkn" name="qkn" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_qkn" name="qkn" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_qkn" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_qkn"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_qkn"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Strength:</td>
-<td><input type="text" class="cb" id="curr_str" name="curr_ins"  size="2" maxlength="2" tabindex=14></td>
+<td style="text-align:left;">Strength:</td>
+<td><input type="text" class="cb" id="curr_str" name="curr_ins"  size="4" maxlength="2" tabindex=14></td>
 <td><input type="radio" class="cb" id="w_str" name="str" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_str" name="str" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_str" name="str" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_str" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_str"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_str"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Jumping:</td>
-<td><input type="text" class="cb" id="curr_jmp" name="curr_ins"  size="2" maxlength="2" tabindex=15></td>
+<td style="text-align:left;">Jumping:</td>
+<td><input type="text" class="cb" id="curr_jmp" name="curr_ins"  size="4" maxlength="2" tabindex=15></td>
 <td><input type="radio" class="cb" id="w_jmp" name="jmp" value="weak" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="n_jmp" name="jmp" value="normal" onclick="template(document.getElementById('pos').value)"><input type="radio" class="cb" id="s_jmp" name="jmp" value="strong" onclick="template(document.getElementById('pos').value)"></td>
 <td><input type="text" class"cb" id="pct_jmp" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_jmp"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_jmp"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
-<td>Banked TPE:</td>
-<td><input type="text" class="cb" id="curr_bnk" name="bank"  size="2" maxlength="4" tabindex=16></td>
+<td style="text-align:left;">Banked TPE:</td>
+<td><input type="text" class="cb" id="curr_bnk" name="bank"  size="4" maxlength="4" tabindex=16></td>
 <td></td>
 <td><input type="text" class"cb" id="pct_bnk" size ="4" maxlength="3"></td>
-<td><input type="text" class="cb" id="reg_bnk"  size="3" maxlength="2" readonly="readonly"></td>
+<td><input type="text" class="cb" id="reg_bnk"  size="4" maxlength="2" readonly="readonly"></td>
 </tr>
 <tr>
 <td colspan="6" style="height:20px;"></td>
 </tr>
 <tr>
-<td>Current APE:</td>
+<td style="text-align:left;font-weight:bold;color:#ff7c19;">Current APE:</td>
 <td><input type="text" class="cb" id="tpe" name="tpe" size="4" maxlength="4" tabindex=17></td>
-<td></td>
-<td colspan="2">Regressed APE: <input type="text" class="cb" id="ape" name="ape" size="4" maxlength="4" readonly="readonly"</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight:bold;color:#ff7c19;">Regressed APE:</td>
+<td><input type="text" readonly="readonly"; class="cb" id="tpe" name="tpe" size="4" maxlength="4" tabindex=18></td>
 </tr>
 <tr>
 <td height="20px;"></td>
 </tr>
 </table>
 </form>
-<div style="border-style:inset;border-size:1px;margin-bottom:20px;padding:5px;">
-Year - Pick your Year of Regression. This will populate your Regression Percentages.<br>
-Regress - Will calculate your Regressed Attribute values based on Current Attribute, Weaknesses/Strengths, and Regression Percentage.<br>
-Swap - Places the current Regressed Attribute values in the Current Attribute. Useful for calculating multiple years.<br>
-Print - Will give you a popup of your Regressed Attribute values.<br>
-Reset - Will reset the entire calculator.<br><br>
-Current Attribute - The value of your attribute prior to this regression calculation.<br>
-Wk | Nrm | Str - Weak, Normal, or Strong. Click the corresponding radio if this attribute is a weakness or a strength in your archetype.<br>
-Regression Percentage - The percentage (in decimal form) in which each attribute will be regressed.<br>
-Regressed Attribute - The value of each Attribute after regression has ruined your player.
+<div style="border-style:solid;border-size:1px;border-color:#efefef;margin-bottom:30px;padding:15px;">
+<span style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size:9pt;line-height:13pt;"><strong>Year</strong> - Pick your Year of Regression. This will populate your Regression Percentages.<br>
+<strong>Regress</strong> - Will calculate your Regressed Attribute values based on Current Attribute, Weaknesses/Strengths, and Regression Percentage.<br>
+<strong>Swap</strong> - Places the current Regressed values in the Rating field. Useful for calculating multiple years.<br>
+<strong>Print</strong> - Will give you a popup of your Regressed attributes.<br>
+<strong>Reset</strong> - Will reset the entire calculator.<br>
+<strong>Rating</strong> - The value of your attribute prior to this regression calculation.<br>
+<strong>Wk | Nrm | Str</strong> - Weakness, Normal, or Strength. Click the corresponding option if this attribute is a weakness or a strength in your archetype.<br>
+<strong>Percentage</strong> - The percentage (in decimal form) in which each attribute will be regressed.<br>
+<strong>Regressed</strong> - The value of each attribute after regression has ruined your player.</span>
 
 
 </div>
@@ -220,11 +223,3 @@ Regressed Attribute - The value of each Attribute after regression has ruined yo
 	
 </body>
 </html>
-
-
-
-
-
-
-
-
